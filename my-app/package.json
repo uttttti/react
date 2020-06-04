@@ -11,7 +11,9 @@
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
-    "redux-aggregate": "^2.1.2"
+    "redux-aggregate": "^2.1.2",
+    "redux-observable": "^1.2.0",
+    "rxjs": "^6.5.5"
   },
   "scripts": {
     "start": "react-scripts start",

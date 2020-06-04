@@ -1,16 +1,21 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
 import { combineReducers, createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import { GameContainer } from './containers';
-import { gameReducer } from "./mutations";
+import { gameReducer, informationReducer } from "./mutations";
+import { combineEpics, createEpicMiddleware } from "redux-observable";
+import { informationEpics } from "./epics";
 import { logger } from "./middlewares";
+import { GameContainer } from "./containers";
 import "./index.css";
 
+const epic = combineEpics(...informationEpics);
+const reducer = combineReducers({ game: gameReducer, information: informationReducer });
+const epicMiddleware = createEpicMiddleware();
+const store = createStore(reducer, applyMiddleware(logger, epicMiddleware));
+epicMiddleware.run(epic);
 
-const app = combineReducers({ game: gameReducer });
-const store = createStore(app, applyMiddleware(logger));
-ReactDOM.render(
+render(
   <Provider store={store}>
     <GameContainer />
   </Provider>, 

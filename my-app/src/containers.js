@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { Game, Board } from './components';
+import { Game, Board, Information } from './components';
+import { gameCreators, informationCreators } from './mutations';
 import { calculateWinner } from './utils';  
-import { gameCreators } from './mutations';
 
 /**
  * Game
@@ -56,3 +56,24 @@ export const BoardContainer = connect(
 	mapStateToPropsForBoard,
 	mapDispatchToPropsForBoard
 )(Board);
+
+/**
+ * Information
+ */
+
+const mapStateToPropsForInformation = (state, ownProps) => {
+	return state.information;
+}
+
+const mapDispatchToPropsForInformation = (dispatch, ownProps) => {
+	return {
+		fetchInformation: () => {
+			dispatch(informationCreators.fetchIPAddress());
+		}
+	};
+};
+
+export const InformationContainer = connect(
+	mapStateToPropsForInformation,
+	mapDispatchToPropsForInformation
+)(Information);
