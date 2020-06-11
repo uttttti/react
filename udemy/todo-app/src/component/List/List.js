@@ -2,8 +2,7 @@ import React from 'react';
 import './List.css';
 
 function List(props) {
-
-  console.log(props.todos);
+  
   const list = props.todos.map((todo, index) => {
     return (
       <li key={index}>
