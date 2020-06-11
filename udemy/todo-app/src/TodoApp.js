@@ -12,14 +12,26 @@ function TodoApp() {
       { id: 3, title: "title3" },
       { id: 4, title: "title4" }
     ],
-    nextId: 0
+    nextId: 4
   });
+
+  const addTodo = title => {
+    setState(
+      {
+        todos: [
+          ...state.todos,
+          {id: state.nextId + 1, title: title}
+        ],
+        nextId: state.nextId + 1
+      }
+    )
+  }
 
   return (
     <div className="TodoApp">
       This is TodoApp!
+      <AddTodo addTodo={addTodo} />
       <List todos={state.todos}　/>
-      <AddTodo />
     </div>
   );
 }

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './AddTodo.css';
 
-function AddTodo() {
+function AddTodo(props) {
 
   const [title, setState] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
-    alert(title);
+    props.addTodo(title)
     setState('');
   };
 
@@ -15,7 +15,6 @@ function AddTodo() {
     const title = e.target.value;
     setState(title);
   };
-
 
   return (
     <div className="AddTodo">
