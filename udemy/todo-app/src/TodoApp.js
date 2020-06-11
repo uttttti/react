@@ -27,11 +27,20 @@ function TodoApp() {
     )
   }
 
+  const deleteTodo = id => {
+    setState(
+      { 
+        todos: state.todos.filter(todo => todo.id !== id),
+        nextId: state.nextId
+      }
+    )
+  }
+
   return (
     <div className="TodoApp">
-      This is TodoApp!
+      <h1>This is TodoApp!</h1>
       <AddTodo addTodo={addTodo} />
-      <List todos={state.todos}　/>
+      <List todos={state.todos} deleteTodo={deleteTodo} />
     </div>
   );
 }
