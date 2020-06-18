@@ -1,30 +1,34 @@
 import React from 'react';
 
-export class Search extends React.Component {
+class Search extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { title: ''};
 	}
 	
 	render() {
+    const { buttonText } = this.props;
     return (
       <div>
-        <h2>Find Your GIF</h2>
         <form onSubmit={this.handleSubmit}>
           <input value={this.state.title} onChange={this.handleChange} />
-          <input type="submit" value="search!" />
+          <input type="submit" value={buttonText} />
         </form>
       </div>
     );
-	}
+  }
+  
 	handleChange = e => {
     const title = e.target.value;
     this.setState({ title: title });
   };
 
   handleSubmit = e => {
+    const { getUrls } = this.props;
     e.preventDefault();
-    this.props.search(this.state.title);
+    getUrls(this.state.title);
     this.setState({ title: '' });
 	};
 }
+
+export default Search;
