@@ -1,5 +1,9 @@
 import { ISquare } from './entity';
 
+/**
+ * 現在の盤面からゲームが終わったかどうかを判定
+ * @param squares 現在の盤面
+ */
 export function calculateWinner(squares: ISquare[]) {
   const lines = [
     [0, 1, 2],
@@ -19,3 +23,35 @@ export function calculateWinner(squares: ISquare[]) {
   }
   return null;
 }
+
+/**
+ * 表示するステータスを返す関数
+ * @param winner 勝者の文字列（決着がついていないときは`null`）
+ * @param xIsNext 次がxかどうかのフラグ
+ */
+export const getStatus = (winner: ISquare, xIsNext: boolean) => {
+  if (winner) {
+    return `Winner: ${winner}`;
+  } else {
+    const nextPlayer = xIsNext? 'X' : 'O';
+    return `Next player: ${nextPlayer}`;
+  }
+}
+
+/**
+ * クリックイベント後の盤面の新しい配列を返す関数
+ * @param squares 盤面の状態
+ * @param xIsNext 次がxかどうか
+ * @param i 何番目の要素が変更されたのか
+ */
+export const createNewSquares = (
+  squares: ISquare[],
+  xIsNext: boolean,
+  i: number
+) => 
+  squares.map((square, index) => {
+    if (i === index) {
+      return xIsNext? 'X': 'O';
+    }
+    return square;
+  })
