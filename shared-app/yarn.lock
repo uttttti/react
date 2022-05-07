@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@uttttti/my-ui@0.0.0":
-  version "0.0.0"
-  resolved "https://npm.pkg.github.com/download/@uttttti/my-ui/0.0.0/ead956719e41e15e71dbca22a72096cce1b40900b412d32ce421fe0b41ec8644#909479fee40f87a44e2bb81e336da004f1f298db"
-  integrity sha512-CEgaMifokwF0ylbk4fE46lsgZyXjRKa9HljMdRFvSEQaJyFBaMuV5LtRXLx5ONrmPpE2QP9WSa19VG+YrLcAGQ==
+"@uttttti/my-ui@0.0.2":
+  version "0.0.2"
+  resolved "https://npm.pkg.github.com/download/@uttttti/my-ui/0.0.2/16572766228ad31fb8b76f4cac118298343ed5d03171c6b1c28ac14e2d41e275#d5666b2aa71d6205ecb223c478d4730161dfb4ee"
+  integrity sha512-wRIEg4nI0KHaf7/t2vKSKfKjv+iBTQTjtvcWw47YaGjskX3l3dWE48VxKoeVNaOJDiO1hvAN/GbuOcKXTdS3fw==
 
 typescript@^4.6.4:
   version "4.6.4"
